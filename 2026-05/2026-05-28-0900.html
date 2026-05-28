@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>학습세트 2026-05-28 오전 9시</title>
+</head>
+<body style="margin:0; background:#fafafa;">
+<div style="max-width:680px; margin:0 auto; padding:20px; color:#202124; line-height:1.6; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Neo',sans-serif;">
+
+<header style="margin-bottom:24px; padding-bottom:16px; border-bottom:2px solid #1a73e8;">
+  <h1 style="margin:0 0 8px 0; color:#1a73e8;">📅 2026-05-28 오전 9시 학습 세트</h1>
+  <p style="margin:0; color:#5f6368; font-size:14px;">자료구조 1 · CS 면접 2 · 정보보안기사 실기 3</p>
+</header>
+
+<h2 style="margin-top:32px; color:#202124;">1부. 자료구조 / 알고리즘</h2>
+
+<h3 style="color:#1a73e8; border-left:4px solid #1a73e8; padding-left:10px; margin-top:24px;">문제 1. 친구 네트워크 그룹 수 세기</h3>
+<p><span style="display:inline-block; background:#e8f0fe; color:#1967d2; padding:2px 8px; border-radius:4px; font-size:12px; margin-right:6px;">난이도: 중</span><span style="display:inline-block; background:#e8f0fe; color:#1967d2; padding:2px 8px; border-radius:4px; font-size:12px;">Union-Find</span></p>
+<p>N명의 사용자(0번 ~ N-1번)와 M개의 친구 관계가 주어진다. 두 사용자가 친구이거나 친구의 친구... 로 연결되어 있으면 같은 그룹에 속한다고 한다. 전체 그룹의 수와, 가장 큰 그룹의 크기를 구하라.</p>
+<p><strong>입력:</strong> <code style="background:#f1f3f4; padding:2px 6px; border-radius:3px;">N (1 ≤ N ≤ 100,000)</code>, <code style="background:#f1f3f4; padding:2px 6px; border-radius:3px;">edges: List[Tuple[int, int]]</code> (0 ≤ M ≤ 200,000)<br>
+<strong>출력:</strong> <code style="background:#f1f3f4; padding:2px 6px; border-radius:3px;">(group_count, max_group_size)</code></p>
+<p><strong>예시:</strong></p>
+<pre style="background:#1e1e1e; color:#d4d4d4; padding:12px; border-radius:6px; overflow-x:auto; font-family:'SF Mono',Consolas,monospace; font-size:13px; line-height:1.5;"><code>N = 7, edges = [(0,1), (1,2), (3,4), (5,6)]
+출력: (3, 3)   # 그룹: {0,1,2}, {3,4}, {5,6} → 3개, 최대 크기 3</code></pre>
+
+<hr style="border:none; border-top:1px solid #e0e0e0; margin:24px 0;">
+
+<h2 style="margin-top:32px; color:#202124;">2부. CS 면접</h2>
+
+<h3 style="color:#1a73e8; border-left:4px solid #1a73e8; padding-left:10px; margin-top:24px;">문제 2. Copy-on-Write 메커니즘</h3>
+<p><span style="display:inline-block; background:#e6f4ea; color:#137333; padding:2px 8px; border-radius:4px; font-size:12px;">운영체제</span></p>
+<p><code style="background:#f1f3f4; padding:2px 6px; border-radius:3px;">fork()</code> 시스템 콜은 부모 프로세스의 메모리를 자식에게 복사한다고 알려져 있는데, 실제로는 즉시 복사하지 않습니다. Linux 커널이 사용하는 <strong>Copy-on-Write (CoW)</strong>가 어떻게 동작하는지, 왜 이런 설계가 필요한지, 그리고 어떤 상황에서 실제 복사가 일어나는지 설명하세요. <code style="background:#f1f3f4; padding:2px 6px; border-radius:3px;">fork()</code> 직후 자식이 <code style="background:#f1f3f4; padding:2px 6px; border-radius:3px;">exec()</code>를 호출할 때의 이점도 포함해주세요.</p>
+
+<h3 style="color:#1a73e8; border-left:4px solid #1a73e8; padding-left:10px; margin-top:24px;">문제 3. MVCC와 락 기반 동시성 제어</h3>
+<p><span style="display:inline-block; background:#e6f4ea; color:#137333; padding:2px 8px; border-radius:4px; font-size:12px;">데이터베이스</span></p>
+<p>PostgreSQL과 MySQL InnoDB 모두 <strong>MVCC (Multi-Version Concurrency Control)</strong>를 사용한다고 합니다. 락 기반 방식과 비교해 MVCC가 어떻게 동시성을 높이는지, 각 트랜잭션이 어떤 버전을 읽게 되는지(snapshot/visibility), 그리고 단점(VACUUM/undo 비용)은 무엇인지 설명하세요.</p>
+
+<hr style="border:none; border-top:1px solid #e0e0e0; margin:24px 0;">
+
+<h2 style="margin-top:32px; color:#202124;">3부. 정보보안기사 실기</h2>
+
+<h3 style="color:#1a73e8; border-left:4px solid #1a73e8; padding-left:10px; margin-top:24px;">문제 4. SSRF 공격 시나리오</h3>
+<p><span style="display:inline-block; background:#fce8e6; color:#c5221f; padding:2px 8px; border-radius:4px; font-size:12px;">애플리케이션 보안</span></p>
+<p>다음 Python 코드의 취약점을 식별하고, 공격자가 어떻게 악용할 수 있는지 구체적인 페이로드 예시와 함께 설명하시오. 또한 안전한 코드로 수정하기 위해 적용해야 할 방어 기법 3가지를 제시하시오.</p>
+<pre style="background:#1e1e1e; color:#d4d4d4; padding:12px; border-radius:6px; overflow-x:auto; font-family:'SF Mono',Consolas,monospace; font-size:13px; line-height:1.5;"><code>@app.route("/fetch")
+def fetch():
+    url = request.args.get("url")
+    response = requests.get(url, timeout=5)
+    return response.content</code></pre>
+
+<h3 style="color:#1a73e8; border-left:4px solid #1a73e8; padding-left:10px; margin-top:24px;">문제 5. DNSSEC의 인증 체인</h3>
+<p><span style="display:inline-block; background:#fce8e6; color:#c5221f; padding:2px 8px; border-radius:4px; font-size:12px;">네트워크 보안</span></p>
+<p>DNSSEC이 해결하고자 하는 위협 모델은 무엇인가? DNSKEY, RRSIG, DS 레코드의 역할과 루트(.)부터 도메인까지의 신뢰 체인(Chain of Trust)이 검증되는 과정을 단계별로 서술하시오.</p>
+
+<h3 style="color:#1a73e8; border-left:4px solid #1a73e8; padding-left:10px; margin-top:24px;">문제 6. PKI와 인증서 폐기 메커니즘</h3>
+<p><span style="display:inline-block; background:#fce8e6; color:#c5221f; padding:2px 8px; border-radius:4px; font-size:12px;">암호학 / PKI</span></p>
+<p>PKI(Public Key Infrastructure)에서 X.509 인증서가 폐기되어야 하는 상황을 2가지 이상 제시하고, <strong>CRL</strong>과 <strong>OCSP</strong>의 동작 방식 차이, 그리고 OCSP의 개인정보 문제를 보완하기 위해 등장한 <strong>OCSP Stapling</strong>의 원리를 설명하시오.</p>
+
+<div style="text-align:center; margin:48px 0 24px 0; padding:16px; background:#fef7e0; border-radius:8px; color:#8a6d3b;">👇 아래는 정답 및 해설입니다 — 먼저 풀어보고 내려가세요 👇</div>
+
+<h2 style="margin-top:32px; color:#202124;">📝 정답 및 해설</h2>
+
+<div style="background:#f8f9fa; padding:16px; border-radius:8px; margin:12px 0;">
+<h3 style="color:#1a73e8; margin-top:0;">문제 1 해설 — Union-Find</h3>
+<p><strong>핵심 아이디어:</strong> 각 노드의 대표(루트)를 찾는 <code style="background:#f1f3f4; padding:2px 6px; border-radius:3px;">find</code>와 두 집합을 합치는 <code style="background:#f1f3f4; padding:2px 6px; border-radius:3px;">union</code> 연산으로 그래프 연결성을 추적. <strong>경로 압축</strong>과 <strong>랭크/사이즈 기반 합치기</strong>를 적용하면 거의 O(1) 시간 복잡도 (정확히는 역 아커만 함수 α(n)).</p>
+<p><strong>시간 복잡도:</strong> O((N + M) · α(N)) ≈ O(N + M)<br><strong>공간 복잡도:</strong> O(N)</p>
+<pre style="background:#1e1e1e; color:#d4d4d4; padding:12px; border-radius:6px; overflow-x:auto; font-family:'SF Mono',Consolas,monospace; font-size:13px; line-height:1.5;"><code>class UnionFind:
+    def __init__(self, n):
+        self.parent = list(range(n))
+        self.size = [1] * n  # 그룹 크기
+
+    def find(self, x):
+        # 경로 압축
+        while self.parent[x] != x:
+            self.parent[x] = self.parent[self.parent[x]]
+            x = self.parent[x]
+        return x
+
+    def union(self, a, b):
+        ra, rb = self.find(a), self.find(b)
+        if ra == rb:
+            return False
+        # 사이즈 기반 합치기: 작은 그룹을 큰 그룹에 붙임
+        if self.size[ra] &lt; self.size[rb]:
+            ra, rb = rb, ra
+        self.parent[rb] = ra
+        self.size[ra] += self.size[rb]
+        return True
+
+
+def solve(N, edges):
+    uf = UnionFind(N)
+    for a, b in edges:
+        uf.union(a, b)
+    # 루트별 그룹 크기 집계
+    roots = {uf.find(i) for i in range(N)}
+    max_size = max(uf.size[r] for r in roots)
+    return (len(roots), max_size)
+
+
+# 테스트
+print(solve(7, [(0,1), (1,2), (3,4), (5,6)]))  # (3, 3)</code></pre>
+<p><strong>다른 접근:</strong> BFS/DFS로 연결 컴포넌트 탐색해도 O(N+M)이지만, 동적으로 간선이 추가되는 상황(스트리밍)에서는 Union-Find가 압도적으로 유리. 또한 Union-Find는 <strong>쿼리당 즉시 응답</strong>이 가능하지만 BFS는 매번 전체 탐색이 필요.</p>
+</div>
+
+<div style="background:#f8f9fa; padding:16px; border-radius:8px; margin:12px 0;">
+<h3 style="color:#1a73e8; margin-top:0;">문제 2 해설 — Copy-on-Write</h3>
+<p><strong>동작 원리:</strong> <code style="background:#f1f3f4; padding:2px 6px; border-radius:3px;">fork()</code> 호출 시 커널은 자식에게 메모리를 즉시 복사하지 않고, 부모와 동일한 물리 페이지를 가리키는 페이지 테이블을 만든 뒤 <strong>모든 페이지를 읽기 전용(read-only)으로 마킹</strong>한다. 부모나 자식이 페이지에 쓰기를 시도하면 페이지 폴트가 발생하고, 그때서야 커널이 해당 페이지를 복사해 쓰기를 시도한 프로세스에게 자기만의 사본을 준다.</p>
+<p><strong>왜 필요한가:</strong></p>
+<ul>
+  <li><strong>성능:</strong> <code style="background:#f1f3f4; padding:2px 6px; border-radius:3px;">fork()</code> 직후 대부분의 자식 프로세스는 <code style="background:#f1f3f4; padding:2px 6px; border-radius:3px;">exec()</code>을 호출하므로(특히 셸에서), 부모 메모리를 통째로 복사하는 것은 낭비. exec()는 어차피 새 프로그램 이미지로 덮어쓰기 때문.</li>
+  <li><strong>메모리 효율:</strong> 부모-자식이 읽기만 한다면 영원히 페이지 공유 가능.</li>
+</ul>
+<p><strong>실제 복사가 일어나는 시점:</strong> 어느 쪽이든 쓰기를 시도하는 페이지에 한해, 페이지 단위(보통 4KB)로 복사. 변수 하나만 바뀌어도 그 페이지 전체가 복사됨.</p>
+<p><strong>주의할 점:</strong> Python 등 GC 언어의 reference count는 객체 헤더의 카운터를 매번 증가시키므로 <code style="background:#f1f3f4; padding:2px 6px; border-radius:3px;">fork()</code> 후 부모 객체를 단순히 읽기만 해도 CoW가 발동되어 메모리가 분리됨. (uWSGI, Gunicorn 같은 prefork 모델의 메모리 폭증 원인)</p>
+</div>
+
+<div style="background:#f8f9fa; padding:16px; border-radius:8px; margin:12px 0;">
+<h3 style="color:#1a73e8; margin-top:0;">문제 3 해설 — MVCC</h3>
+<p><strong>락 기반 vs MVCC:</strong> 락 기반은 읽기-쓰기, 쓰기-쓰기 충돌을 락 획득 대기로 처리 → 동시성 저하. MVCC는 데이터의 <strong>여러 버전을 보관</strong>해 쓰기는 새 버전을 만들고, 읽기는 트랜잭션 시작 시점의 일관된 스냅샷에서 적절한 버전을 본다 → <strong>읽기는 절대 쓰기를 막지 않음, 쓰기도 읽기를 막지 않음</strong>.</p>
+<p><strong>가시성(Visibility):</strong> 각 행 버전에는 생성 트랜잭션 ID(xmin)와 삭제 트랜잭션 ID(xmax)가 기록됨. 현재 트랜잭션의 ID, 활성 트랜잭션 목록, 격리 수준에 따라 어느 버전이 "보이는지" 결정.</p>
+<ul>
+  <li><strong>PostgreSQL:</strong> 각 행이 새 위치에 새 버전으로 기록(in-place update X). 구버전은 VACUUM이 정리.</li>
+  <li><strong>MySQL InnoDB:</strong> 클러스터드 인덱스는 in-place 업데이트, 이전 버전은 <strong>undo log</strong>에 저장. 읽기 시 undo log를 거슬러 올라가 적절한 버전 재구성.</li>
+</ul>
+<p><strong>단점:</strong></p>
+<ul>
+  <li>구버전 정리 비용 (PG의 VACUUM, MySQL의 purge thread) — 게을리하면 <strong>테이블 비대화(bloat)</strong> 발생</li>
+  <li>장기 트랜잭션은 오래된 스냅샷을 유지시켜 모든 구버전을 살아있게 만듦 (PG에서 특히 치명적)</li>
+  <li>Phantom read 같은 쓰기 충돌은 여전히 격리 수준별로 별도 처리 필요 (PG: Serializable Snapshot Isolation, MySQL: Next-Key Lock)</li>
+</ul>
+</div>
+
+<div style="background:#f8f9fa; padding:16px; border-radius:8px; margin:12px 0;">
+<h3 style="color:#1a73e8; margin-top:0;">문제 4 해설 — SSRF</h3>
+<p><strong>취약점:</strong> 사용자 제어 URL을 검증 없이 서버가 직접 요청 → Server-Side Request Forgery (SSRF). 공격자는 외부 URL이 아닌 <strong>내부망/loopback/메타데이터 서비스</strong>를 노려 정보를 탈취하거나 내부 시스템과 상호작용.</p>
+<p><strong>공격 페이로드 예시:</strong></p>
+<ul>
+  <li><code style="background:#f1f3f4; padding:2px 6px; border-radius:3px;">http://169.254.169.254/latest/meta-data/iam/security-credentials/</code> — AWS IMDS에서 IAM 자격증명 탈취</li>
+  <li><code style="background:#f1f3f4; padding:2px 6px; border-radius:3px;">http://localhost:6379/</code> — 내부 Redis 접근</li>
+  <li><code style="background:#f1f3f4; padding:2px 6px; border-radius:3px;">file:///etc/passwd</code> — 파일 스킴으로 로컬 파일 읽기</li>
+  <li><code style="background:#f1f3f4; padding:2px 6px; border-radius:3px;">http://attacker.com/redirect</code> → 302로 내부 IP로 리다이렉트 (우회 기법)</li>
+</ul>
+<p><strong>방어 기법:</strong></p>
+<ol>
+  <li><strong>스킴 화이트리스트:</strong> http/https만 허용. file/gopher/dict 등 차단.</li>
+  <li><strong>DNS 해석 후 IP 검증:</strong> URL의 호스트명을 resolve한 뒤, 결과 IP가 사설 대역(RFC 1918: 10/8, 172.16/12, 192.168/16), 루프백(127/8), 링크로컬(169.254/16) 등이면 거부. DNS rebinding 방지를 위해 resolve한 IP로 직접 연결.</li>
+  <li><strong>리다이렉트 비활성화 또는 재검증:</strong> <code style="background:#f1f3f4; padding:2px 6px; border-radius:3px;">allow_redirects=False</code>, 또는 매 리다이렉트마다 IP 화이트리스트 재검사.</li>
+  <li>(추가) <strong>AWS 환경이라면 IMDSv2 강제</strong>: 토큰 기반 세션 인증으로 단순 GET SSRF 차단.</li>
+</ol>
+</div>
+
+<div style="background:#f8f9fa; padding:16px; border-radius:8px; margin:12px 0;">
+<h3 style="color:#1a73e8; margin-top:0;">문제 5 해설 — DNSSEC</h3>
+<p><strong>위협 모델:</strong> DNS 응답 위조(스푸핑), 캐시 포이즈닝, MITM. 기존 DNS는 무결성·인증 없는 평문 UDP라 응답을 신뢰할 수 없음.</p>
+<p><strong>주요 레코드:</strong></p>
+<ul>
+  <li><strong>DNSKEY:</strong> 도메인의 공개키. ZSK(Zone Signing Key)와 KSK(Key Signing Key)로 나뉨.</li>
+  <li><strong>RRSIG:</strong> 각 레코드 세트(RRset)에 대한 ZSK 서명.</li>
+  <li><strong>DS (Delegation Signer):</strong> 부모 존이 자식 존의 KSK 해시를 저장 — 위임 체인의 핵심.</li>
+</ul>
+<p><strong>검증 과정 (Chain of Trust):</strong></p>
+<ol>
+  <li>리졸버는 <strong>루트의 KSK 공개키(trust anchor)</strong>를 신뢰점으로 미리 보유.</li>
+  <li><code style="background:#f1f3f4; padding:2px 6px; border-radius:3px;">example.com</code> 조회 시, 루트 → <code style="background:#f1f3f4; padding:2px 6px; border-radius:3px;">.com</code> 위임 DS 레코드의 RRSIG를 루트 ZSK로 검증 (그 ZSK는 다시 루트 KSK로 검증).</li>
+  <li><code style="background:#f1f3f4; padding:2px 6px; border-radius:3px;">.com</code>의 KSK → ZSK → <code style="background:#f1f3f4; padding:2px 6px; border-radius:3px;">example.com</code>의 DS로 위임 검증.</li>
+  <li>최종적으로 <code style="background:#f1f3f4; padding:2px 6px; border-radius:3px;">example.com</code>의 A 레코드 RRSIG를 ZSK로 검증.</li>
+  <li>한 단계라도 실패하면 <strong>SERVFAIL</strong> 반환 — 위변조된 응답은 거부됨.</li>
+</ol>
+<p><strong>실무 한계:</strong> 배포율이 낮음(Top 도메인의 30% 미만), 키 롤오버 운영 부담, NSEC/NSEC3로 인한 존 워킹(zone walking) 가능성 등.</p>
+</div>
+
+<div style="background:#f8f9fa; padding:16px; border-radius:8px; margin:12px 0;">
+<h3 style="color:#1a73e8; margin-top:0;">문제 6 해설 — PKI 인증서 폐기</h3>
+<p><strong>폐기 사유 예시:</strong></p>
+<ul>
+  <li>개인키 유출 또는 유출 의심 (KeyCompromise)</li>
+  <li>인증서 발급 정보 변경 (소속 변경, 도메인 양도)</li>
+  <li>CA의 발급 실수 / 부정 발급 발견</li>
+  <li>알고리즘 약화 (예: SHA-1 서명 인증서 폐기)</li>
+</ul>
+<p><strong>CRL (Certificate Revocation List):</strong> CA가 주기적으로 발행하는 폐기 인증서 목록. 클라이언트가 CRL Distribution Point에서 다운로드해 캐싱 후 사용.<br>
+<em>단점:</em> 파일이 점점 커짐, 갱신 주기(보통 24h~7d) 동안 stale 가능, 매번 전체 다운로드 비용.</p>
+<p><strong>OCSP (Online Certificate Status Protocol):</strong> 클라이언트가 CA의 OCSP responder에 특정 인증서 시리얼만 질의. 실시간성 우수, 트래픽 적음.<br>
+<em>단점:</em> 클라이언트가 어느 사이트에 접속하는지 OCSP responder가 알게 됨 (<strong>개인정보 누출</strong>), responder 가용성에 TLS 핸드셰이크 의존.</p>
+<p><strong>OCSP Stapling (RFC 6066):</strong> 서버가 미리 OCSP responder에서 자기 인증서의 서명된 응답을 받아두고, TLS 핸드셰이크 중 <code style="background:#f1f3f4; padding:2px 6px; border-radius:3px;">Certificate Status</code> 확장으로 클라이언트에게 함께 제공.</p>
+<ul>
+  <li>클라이언트가 별도로 OCSP responder에 질의하지 않음 → 프라이버시 보호</li>
+  <li>OCSP 응답에 CA 서명이 있어 서버가 위조 불가</li>
+  <li>응답에 timestamp가 있어 replay 방지</li>
+</ul>
+<p><strong>추가 키워드:</strong> Must-Staple (인증서 확장으로 stapling 의무화), CT (Certificate Transparency) 로그, Short-lived 인증서로 폐기 의존도 축소 트렌드.</p>
+</div>
+
+<footer style="margin-top:40px; padding-top:16px; border-top:1px solid #e0e0e0; color:#80868b; font-size:12px;">
+<p style="margin:0;">2026-05-28 오전 9시 학습 세트 · <a href="../index.html" style="color:#5f6368;">목록으로</a></p>
+</footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>학습세트 2026-05-28 정오 12시</title>
+</head>
+<body style="margin:0; background:#fafafa;">
+<div style="max-width:680px; margin:0 auto; padding:20px; color:#202124; line-height:1.6; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Neo',sans-serif;">
+
+<header style="margin-bottom:24px; padding-bottom:16px; border-bottom:2px solid #1a73e8;">
+  <h1 style="margin:0 0 8px 0; color:#1a73e8;">📅 2026-05-28 정오 12시 학습 세트</h1>
+  <p style="margin:0; color:#5f6368; font-size:14px;">자료구조 1 · CS 면접 2 · 정보보안기사 실기 3</p>
+</header>
+
+<h2 style="margin-top:32px; color:#202124;">1부. 자료구조 / 알고리즘</h2>
+
+<h3 style="color:#1a73e8; border-left:4px solid #1a73e8; padding-left:10px; margin-top:24px;">문제 1. Trie 기반 자동완성 사전</h3>
+<p><span style="display:inline-block; background:#e8f0fe; color:#1967d2; padding:2px 8px; border-radius:4px; font-size:12px; margin-right:6px;">난이도: 중</span><span style="display:inline-block; background:#e8f0fe; color:#1967d2; padding:2px 8px; border-radius:4px; font-size:12px;">Trie</span></p>
+<p>다음 두 연산을 지원하는 자동완성 사전을 구현하라.</p>
+<ul>
+  <li><code style="background:#f1f3f4; padding:2px 6px; border-radius:3px;">insert(word: str)</code> — 단어를 사전에 추가</li>
+  <li><code style="background:#f1f3f4; padding:2px 6px; border-radius:3px;">suggest(prefix: str, k: int) -&gt; List[str]</code> — 해당 prefix로 시작하는 단어 중 사전순으로 앞선 최대 k개를 반환</li>
+</ul>
+<p><strong>제약:</strong> 단어는 소문자 영어, 최대 50자. <code style="background:#f1f3f4; padding:2px 6px; border-radius:3px;">insert</code>는 O(L), <code style="background:#f1f3f4; padding:2px 6px; border-radius:3px;">suggest</code>는 O(L + 결과 길이의 합) 안에 동작해야 한다.</p>
+<p><strong>예시:</strong></p>
+<pre style="background:#1e1e1e; color:#d4d4d4; padding:12px; border-radius:6px; overflow-x:auto; font-family:'SF Mono',Consolas,monospace; font-size:13px; line-height:1.5;"><code>d = Autocomplete()
+d.insert("apple"); d.insert("apply"); d.insert("apricot"); d.insert("banana")
+d.suggest("ap", 5)   # → ["apple", "apply", "apricot"]
+d.suggest("app", 1)  # → ["apple"]</code></pre>
+
+<hr style="border:none; border-top:1px solid #e0e0e0; margin:24px 0;">
+
+<h2 style="margin-top:32px; color:#202124;">2부. CS 면접</h2>
+
+<h3 style="color:#1a73e8; border-left:4px solid #1a73e8; padding-left:10px; margin-top:24px;">문제 2. 트랜잭션 격리 수준과 Phantom Read</h3>
+<p><span style="display:inline-block; background:#e6f4ea; color:#137333; padding:2px 8px; border-radius:4px; font-size:12px;">데이터베이스</span></p>
+<p>ANSI SQL의 4가지 트랜잭션 격리 수준(READ UNCOMMITTED, READ COMMITTED, REPEATABLE READ, SERIALIZABLE)이 각각 어떤 이상 현상(Dirty Read, Non-Repeatable Read, Phantom Read)을 허용하는지 설명하시오. 또한 <strong>MySQL InnoDB의 REPEATABLE READ가 Phantom Read를 어떻게 방지</strong>하는지 (MVCC + Next-Key Lock의 협업) 구체적으로 설명하시오.</p>
+
+<h3 style="color:#1a73e8; border-left:4px solid #1a73e8; padding-left:10px; margin-top:24px;">문제 3. HTTP/3와 QUIC</h3>
+<p><span style="display:inline-block; background:#e6f4ea; color:#137333; padding:2px 8px; border-radius:4px; font-size:12px;">네트워크</span></p>
+<p>HTTP/2가 해결하지 못했던 <strong>TCP head-of-line blocking</strong> 문제는 무엇이며, QUIC이 어떻게 이를 해결하는지 설명하시오. 또한 QUIC의 <strong>0-RTT 연결 재개</strong>와 <strong>Connection Migration</strong> 기능의 동작 원리와 보안상 고려사항을 함께 설명하시오.</p>
+
+<hr style="border:none; border-top:1px solid #e0e0e0; margin:24px 0;">
+
+<h2 style="margin-top:32px; color:#202124;">3부. 정보보안기사 실기</h2>
+
+<h3 style="color:#1a73e8; border-left:4px solid #1a73e8; padding-left:10px; margin-top:24px;">문제 4. SSRF와 AWS IMDS 탈취 시나리오</h3>
+<p><span style="display:inline-block; background:#fce8e6; color:#c5221f; padding:2px 8px; border-radius:4px; font-size:12px;">애플리케이션 보안</span></p>
+<p>2019년 Capital One 사건은 WAF에서 발견된 SSRF로 EC2 인스턴스의 IMDS를 통해 IAM 자격증명을 탈취당한 사례다. 다음을 서술하시오.</p>
+<ol>
+  <li>공격자가 IMDSv1을 악용하기 위해 사용한 URL과 응답으로 얻는 데이터 종류</li>
+  <li>AWS가 발표한 <strong>IMDSv2</strong>가 SSRF를 어떻게 차단하는지 (토큰 발급 절차)</li>
+  <li>DNS Rebinding이나 IPv6 표기 같은 <strong>SSRF 필터 우회 기법</strong> 2가지 예시</li>
+</ol>
+
+<h3 style="color:#1a73e8; border-left:4px solid #1a73e8; padding-left:10px; margin-top:24px;">문제 5. 블록 암호 운영 모드와 AEAD</h3>
+<p><span style="display:inline-block; background:#fce8e6; color:#c5221f; padding:2px 8px; border-radius:4px; font-size:12px;">암호학</span></p>
+<p>블록 암호 운영 모드 <strong>ECB, CBC, CTR, GCM</strong>의 특성을 비교하시오. 특히:</p>
+<ul>
+  <li>ECB가 보안적으로 부적절한 이유와 시각적으로 드러나는 패턴 누출</li>
+  <li>CBC의 IV 요구사항 및 패딩 오라클 공격</li>
+  <li>CTR과 GCM이 병렬화 가능한 이유</li>
+  <li>TLS 1.3이 <strong>AEAD 모드(GCM, ChaCha20-Poly1305)만 허용</strong>하는 이유</li>
+</ul>
+
+<h3 style="color:#1a73e8; border-left:4px solid #1a73e8; padding-left:10px; margin-top:24px;">문제 6. RFC 3227 휘발성 증거 수집 순서</h3>
+<p><span style="display:inline-block; background:#fce8e6; color:#c5221f; padding:2px 8px; border-radius:4px; font-size:12px;">사고대응 / 디지털 포렌식</span></p>
+<p>침해사고 발생 시 <strong>RFC 3227 (Guidelines for Evidence Collection and Archiving)</strong>이 제시하는 휘발성 순서(Order of Volatility)에 따라 라이브 시스템에서 증거를 수집하려고 한다. 휘발성이 가장 높은 항목부터 6단계 이상 나열하고, 각 단계별로 <strong>Linux 환경에서 사용할 수 있는 도구 또는 명령어</strong>를 함께 제시하시오. 또한 수집 과정에서 <strong>무결성(Integrity)을 보장</strong>하기 위한 필수 절차 3가지를 서술하시오.</p>
+
+<div style="text-align:center; margin:48px 0 24px 0; padding:16px; background:#fef7e0; border-radius:8px; color:#8a6d3b;">👇 아래는 정답 및 해설입니다 — 먼저 풀어보고 내려가세요 👇</div>
+
+<h2 style="margin-top:32px; color:#202124;">📝 정답 및 해설</h2>
+
+<div style="background:#f8f9fa; padding:16px; border-radius:8px; margin:12px 0;">
+<h3 style="color:#1a73e8; margin-top:0;">문제 1 해설 — Trie 자동완성</h3>
+<p><strong>핵심 아이디어:</strong> 문자 단위 트리(Trie)를 사용해 prefix 검색을 O(L)에 수행. 각 노드는 자식 사전과 단어 종료 플래그를 가진다. suggest는 prefix 노드까지 따라간 뒤 DFS로 사전순(소문자 a~z) 탐색하며 k개 모이면 조기 종료.</p>
+<p><strong>시간 복잡도:</strong> insert O(L), suggest O(L + 결과 단어 길이 합)<br><strong>공간 복잡도:</strong> O(전체 문자 수)</p>
+<pre style="background:#1e1e1e; color:#d4d4d4; padding:12px; border-radius:6px; overflow-x:auto; font-family:'SF Mono',Consolas,monospace; font-size:13px; line-height:1.5;"><code>class TrieNode:
+    __slots__ = ('children', 'is_end')
+    def __init__(self):
+        self.children = {}   # char → TrieNode
+        self.is_end = False
+
+
+class Autocomplete:
+    def __init__(self):
+        self.root = TrieNode()
+
+    def insert(self, word: str) -&gt; None:
+        node = self.root
+        for ch in word:
+            if ch not in node.children:
+                node.children[ch] = TrieNode()
+            node = node.children[ch]
+        node.is_end = True
+
+    def suggest(self, prefix: str, k: int):
+        # 1) prefix 노드까지 이동
+        node = self.root
+        for ch in prefix:
+            if ch not in node.children:
+                return []
+            node = node.children[ch]
+        # 2) DFS 사전순, k개 수집
+        results = []
+        def dfs(cur, path):
+            if len(results) &gt;= k:
+                return
+            if cur.is_end:
+                results.append(prefix + path)
+                if len(results) &gt;= k:
+                    return
+            for ch in sorted(cur.children.keys()):
+                dfs(cur.children[ch], path + ch)
+        dfs(node, "")
+        return results
+
+
+# 테스트
+d = Autocomplete()
+for w in ["apple", "apply", "apricot", "banana"]:
+    d.insert(w)
+print(d.suggest("ap", 5))   # ['apple', 'apply', 'apricot']
+print(d.suggest("app", 1))  # ['apple']</code></pre>
+<p><strong>다른 접근:</strong> 단순 정렬된 배열 + binary search로 prefix 시작 위치 찾기도 O(log N · L)이지만, 동적 삽입과 부분 prefix 탐색이 잦으면 Trie가 압도적. 메모리가 문제면 <strong>Compressed Trie(라딕스 트리)</strong> 사용 가능.</p>
+</div>
+
+<div style="background:#f8f9fa; padding:16px; border-radius:8px; margin:12px 0;">
+<h3 style="color:#1a73e8; margin-top:0;">문제 2 해설 — 격리 수준과 Phantom Read</h3>
+<p><strong>4가지 격리 수준과 허용 이상 현상:</strong></p>
+<table style="border-collapse:collapse; margin:8px 0; font-size:13px;">
+  <tr style="background:#e8eaed;"><th style="padding:6px 10px; border:1px solid #dadce0;">격리 수준</th><th style="padding:6px 10px; border:1px solid #dadce0;">Dirty Read</th><th style="padding:6px 10px; border:1px solid #dadce0;">Non-Repeatable Read</th><th style="padding:6px 10px; border:1px solid #dadce0;">Phantom Read</th></tr>
+  <tr><td style="padding:6px 10px; border:1px solid #dadce0;">READ UNCOMMITTED</td><td style="padding:6px 10px; border:1px solid #dadce0;">O</td><td style="padding:6px 10px; border:1px solid #dadce0;">O</td><td style="padding:6px 10px; border:1px solid #dadce0;">O</td></tr>
+  <tr><td style="padding:6px 10px; border:1px solid #dadce0;">READ COMMITTED</td><td style="padding:6px 10px; border:1px solid #dadce0;">X</td><td style="padding:6px 10px; border:1px solid #dadce0;">O</td><td style="padding:6px 10px; border:1px solid #dadce0;">O</td></tr>
+  <tr><td style="padding:6px 10px; border:1px solid #dadce0;">REPEATABLE READ</td><td style="padding:6px 10px; border:1px solid #dadce0;">X</td><td style="padding:6px 10px; border:1px solid #dadce0;">X</td><td style="padding:6px 10px; border:1px solid #dadce0;">O (표준) / X (InnoDB)</td></tr>
+  <tr><td style="padding:6px 10px; border:1px solid #dadce0;">SERIALIZABLE</td><td style="padding:6px 10px; border:1px solid #dadce0;">X</td><td style="padding:6px 10px; border:1px solid #dadce0;">X</td><td style="padding:6px 10px; border:1px solid #dadce0;">X</td></tr>
+</table>
+<p><strong>이상 현상 정의:</strong></p>
+<ul>
+  <li><strong>Dirty Read:</strong> 커밋 안 된 변경을 다른 트랜잭션이 읽음</li>
+  <li><strong>Non-Repeatable Read:</strong> 같은 행을 두 번 읽었는데 값이 다름 (사이에 다른 TX가 UPDATE/DELETE 커밋)</li>
+  <li><strong>Phantom Read:</strong> 같은 조건의 범위 쿼리를 두 번 했는데 결과 행 개수가 달라짐 (사이에 INSERT 커밋)</li>
+</ul>
+<p><strong>MySQL InnoDB의 Phantom Read 방지:</strong></p>
+<ol>
+  <li><strong>Consistent Read (일반 SELECT):</strong> MVCC로 트랜잭션 시작 시점의 스냅샷을 읽음 → 같은 범위 쿼리는 같은 결과 → Phantom 없음.</li>
+  <li><strong>Locking Read (SELECT ... FOR UPDATE/SHARE, INSERT/UPDATE):</strong> MVCC로는 부족 (다른 TX의 INSERT 시점에 락이 없음). InnoDB는 <strong>Next-Key Lock</strong>을 잡음 — 인덱스 레코드 + 직전 갭(gap)을 함께 잠금. 새 INSERT가 그 범위에 들어오려면 갭락 대기 → Phantom 발생 불가.</li>
+</ol>
+<p><strong>주의:</strong> InnoDB REPEATABLE READ에서도 일반 SELECT는 스냅샷, FOR UPDATE는 락. 같은 트랜잭션에서 두 방식을 섞으면 결과가 다를 수 있음 (소위 "phantom의 부분 회피").</p>
+</div>
+
+<div style="background:#f8f9fa; padding:16px; border-radius:8px; margin:12px 0;">
+<h3 style="color:#1a73e8; margin-top:0;">문제 3 해설 — HTTP/3와 QUIC</h3>
+<p><strong>TCP HOL Blocking 문제:</strong> HTTP/2는 단일 TCP 연결에서 여러 스트림을 다중화. 하지만 TCP는 패킷 손실 시 해당 세그먼트 이후의 모든 데이터를 재전송될 때까지 상위 계층에 전달하지 않음 → 한 스트림의 패킷 손실이 모든 스트림을 멈춤. HTTP/2 레벨의 다중화 이점이 TCP 레벨에서 무력화.</p>
+<p><strong>QUIC의 해결:</strong> QUIC은 UDP 위에서 동작하며, <strong>각 스트림이 독립적인 신뢰성과 순서 보장</strong>을 가짐. 한 스트림의 패킷 손실은 그 스트림만 멈추고 다른 스트림은 계속 처리됨. 또한 QUIC은 전송 + 암호화를 통합 (TLS 1.3 핸드셰이크가 QUIC 핸드셰이크 안에 포함).</p>
+<p><strong>0-RTT 재개:</strong> 이전 연결에서 협상한 키 자료를 사용해, 첫 패킷에 애플리케이션 데이터를 함께 보냄. RTT 0번 = 핸드셰이크 왕복 없이 즉시 통신.</p>
+<ul>
+  <li><strong>보안 고려사항:</strong> 0-RTT 데이터는 <strong>replay attack에 취약</strong> — 공격자가 캡처한 0-RTT 패킷을 재전송하면 서버가 같은 요청을 두 번 처리할 수 있음. 따라서 <strong>멱등(idempotent) 요청에만 허용</strong>해야 함 (GET은 OK, POST는 위험).</li>
+</ul>
+<p><strong>Connection Migration:</strong> QUIC 연결은 IP/Port 기반이 아닌 <strong>Connection ID 기반</strong>. 클라이언트가 Wi-Fi → 셀룰러로 네트워크 전환해도 같은 Connection ID를 사용해 연결 유지 (TCP는 새 연결 필요).</p>
+<ul>
+  <li><strong>보안 고려사항:</strong> 마이그레이션 시 <strong>경로 검증(Path Validation)</strong> 필수 — 새 경로가 진짜 같은 클라이언트인지 PATH_CHALLENGE/PATH_RESPONSE로 확인. NAT rebinding을 통한 DoS 가능성도 고려.</li>
+</ul>
+</div>
+
+<div style="background:#f8f9fa; padding:16px; border-radius:8px; margin:12px 0;">
+<h3 style="color:#1a73e8; margin-top:0;">문제 4 해설 — SSRF + AWS IMDS</h3>
+<p><strong>(1) IMDSv1 악용 URL:</strong></p>
+<pre style="background:#1e1e1e; color:#d4d4d4; padding:12px; border-radius:6px; overflow-x:auto; font-family:'SF Mono',Consolas,monospace; font-size:13px; line-height:1.5;"><code>GET http://169.254.169.254/latest/meta-data/iam/security-credentials/
+→ 인스턴스에 붙은 IAM 역할 이름 목록
+
+GET http://169.254.169.254/latest/meta-data/iam/security-credentials/&lt;role-name&gt;
+→ 임시 자격증명 (AccessKeyId, SecretAccessKey, Token, Expiration)
+→ 이 자격으로 AWS CLI/SDK로 S3, RDS, IAM 등 접근 가능</code></pre>
+<p><strong>(2) IMDSv2의 차단 방식:</strong> 토큰 기반 세션 인증.</p>
+<ol>
+  <li>클라이언트가 먼저 <code style="background:#f1f3f4; padding:2px 6px; border-radius:3px;">PUT /latest/api/token</code>로 토큰 발급 요청 (<code style="background:#f1f3f4; padding:2px 6px; border-radius:3px;">X-aws-ec2-metadata-token-ttl-seconds</code> 헤더 필요).</li>
+  <li>응답으로 받은 토큰을 이후 모든 메타데이터 요청에 <code style="background:#f1f3f4; padding:2px 6px; border-radius:3px;">X-aws-ec2-metadata-token</code> 헤더로 첨부.</li>
+  <li>대부분의 SSRF는 단순 GET만 가능 → PUT으로 토큰 발급 못 함 → 메타데이터 접근 차단.</li>
+  <li>추가 안전장치: <code style="background:#f1f3f4; padding:2px 6px; border-radius:3px;">X-Forwarded-For</code> 헤더가 있는 요청은 거부, hop limit 1 (호스트 외부로 토큰 유출 방지).</li>
+</ol>
+<p><strong>(3) SSRF 필터 우회 기법 예시:</strong></p>
+<ul>
+  <li><strong>DNS Rebinding:</strong> 공격자 통제 도메인이 처음엔 정상 IP를 반환 → 검증 통과 → 짧은 TTL 만료 후 169.254.169.254 반환 → 실제 요청은 메타데이터 서비스로</li>
+  <li><strong>IP 표기 우회:</strong> <code style="background:#f1f3f4; padding:2px 6px; border-radius:3px;">http://0177.0.0.1/</code> (8진수), <code style="background:#f1f3f4; padding:2px 6px; border-radius:3px;">http://2130706433/</code> (10진수), <code style="background:#f1f3f4; padding:2px 6px; border-radius:3px;">http://[::ffff:169.254.169.254]/</code> (IPv6-mapped IPv4)</li>
+  <li><strong>URL 파서 차이:</strong> <code style="background:#f1f3f4; padding:2px 6px; border-radius:3px;">http://evil.com#@169.254.169.254/</code> — 일부 파서는 evil.com을 호스트로, 다른 파서는 169.254.169.254로 해석</li>
+  <li><strong>리다이렉트:</strong> 허용된 외부 URL이 302로 내부 IP로 리다이렉트</li>
+</ul>
+</div>
+
+<div style="background:#f8f9fa; padding:16px; border-radius:8px; margin:12px 0;">
+<h3 style="color:#1a73e8; margin-top:0;">문제 5 해설 — 블록 암호 운영 모드</h3>
+<p><strong>ECB (Electronic Codebook):</strong> 평문을 블록 단위로 나눠 각각 독립 암호화. 같은 평문 블록 → 같은 암호문 블록.<br>
+<em>문제점:</em> 패턴이 그대로 누출. 유명한 "ECB 펭귄" 이미지 — 픽셀 데이터를 ECB로 암호화해도 펭귄 윤곽이 보임. 어떤 보안 용도에도 부적절.</p>
+<p><strong>CBC (Cipher Block Chaining):</strong> 이전 암호문 블록과 XOR 후 암호화. IV 필요.<br>
+<em>요구사항:</em> IV는 <strong>예측 불가능(unpredictable)</strong>해야 함 — TLS 1.0의 IV 예측 가능성이 BEAST 공격으로 이어졌음.<br>
+<em>패딩 오라클 공격:</em> 서버가 PKCS#7 패딩 오류 여부를 응답으로 흘리면, 공격자는 1바이트씩 평문 복호화 가능 (Vaudenay 2002, POODLE).</p>
+<p><strong>CTR (Counter):</strong> 카운터(nonce || counter)를 암호화한 키 스트림과 평문을 XOR. 스트림 암호처럼 동작.<br>
+<em>장점:</em> 블록 간 의존성 없음 → <strong>완전 병렬 처리 가능</strong> (암·복호화 모두). 임의 위치 접근(random access)도 가능.<br>
+<em>주의:</em> nonce 재사용 금지 — 같은 nonce·키 조합으로 두 평문 암호화하면 두 암호문 XOR이 두 평문 XOR과 같아져 복호화 가능.</p>
+<p><strong>GCM (Galois/Counter Mode):</strong> CTR로 암호화 + GMAC으로 인증 → AEAD(Authenticated Encryption with Associated Data).<br>
+<em>병렬화:</em> CTR 부분은 완전 병렬, GMAC도 GF(2^128) Galois 곱셈이 병렬화 가능. 하드웨어 가속(AES-NI, PCLMULQDQ) 지원으로 매우 빠름.</p>
+<p><strong>TLS 1.3가 AEAD만 허용하는 이유:</strong></p>
+<ul>
+  <li>CBC + HMAC 조합의 "MAC-then-Encrypt"는 Lucky13, padding oracle 등 구조적 취약점 누적</li>
+  <li>AEAD는 암호화·인증을 단일 알고리즘으로 결합 → 잘못 사용할 가능성 감소</li>
+  <li>TLS 1.3은 GCM, ChaCha20-Poly1305, CCM만 허용. RC4, 3DES, CBC 모드 전부 제거.</li>
+</ul>
+<p><strong>키워드:</strong> Nonce reuse, AEAD, AES-NI, ChaCha20-Poly1305(모바일 친화), Forward Secrecy.</p>
+</div>
+
+<div style="background:#f8f9fa; padding:16px; border-radius:8px; margin:12px 0;">
+<h3 style="color:#1a73e8; margin-top:0;">문제 6 해설 — RFC 3227 휘발성 순서</h3>
+<p><strong>휘발성 순서 (높음 → 낮음) 및 Linux 도구:</strong></p>
+<ol>
+  <li><strong>CPU 레지스터, 캐시</strong> — 일반적 도구로는 수집 불가. 메모리 덤프 시점에 일부 캡처될 수 있음.</li>
+  <li><strong>라우팅 테이블, ARP 캐시, 프로세스 테이블, 커널 통계, 메모리 매핑</strong>
+    <ul>
+      <li><code style="background:#f1f3f4; padding:2px 6px; border-radius:3px;">ip route</code> / <code style="background:#f1f3f4; padding:2px 6px; border-radius:3px;">netstat -rn</code></li>
+      <li><code style="background:#f1f3f4; padding:2px 6px; border-radius:3px;">ip neigh</code> / <code style="background:#f1f3f4; padding:2px 6px; border-radius:3px;">arp -an</code></li>
+      <li><code style="background:#f1f3f4; padding:2px 6px; border-radius:3px;">ps auxf</code>, <code style="background:#f1f3f4; padding:2px 6px; border-radius:3px;">ls -la /proc/[PID]/</code></li>
+      <li><code style="background:#f1f3f4; padding:2px 6px; border-radius:3px;">ss -tunap</code> (열린 소켓·포트·연결 상태)</li>
+    </ul>
+  </li>
+  <li><strong>물리 메모리 (RAM) 덤프</strong>
+    <ul>
+      <li><code style="background:#f1f3f4; padding:2px 6px; border-radius:3px;">LiME</code> (Linux Memory Extractor) 커널 모듈</li>
+      <li><code style="background:#f1f3f4; padding:2px 6px; border-radius:3px;">AVML</code> (Microsoft)</li>
+      <li>이후 Volatility / Rekall로 분석</li>
+    </ul>
+  </li>
+  <li><strong>임시 파일 시스템</strong> — <code style="background:#f1f3f4; padding:2px 6px; border-radius:3px;">/tmp</code>, <code style="background:#f1f3f4; padding:2px 6px; border-radius:3px;">/var/tmp</code>, <code style="background:#f1f3f4; padding:2px 6px; border-radius:3px;">/dev/shm</code> tar로 보존</li>
+  <li><strong>디스크 / 영구 매체</strong> — <code style="background:#f1f3f4; padding:2px 6px; border-radius:3px;">dd</code>, <code style="background:#f1f3f4; padding:2px 6px; border-radius:3px;">dcfldd</code>, <code style="background:#f1f3f4; padding:2px 6px; border-radius:3px;">dc3dd</code>로 비트 단위 이미징</li>
+  <li><strong>원격 로그·모니터링 데이터</strong> — SIEM, syslog 서버, 방화벽 로그</li>
+  <li><strong>물리적 구성, 토폴로지, 백업 매체</strong></li>
+</ol>
+<p><strong>무결성 보장 필수 절차:</strong></p>
+<ol>
+  <li><strong>해시 즉시 계산 및 보관:</strong> 수집 직후 <code style="background:#f1f3f4; padding:2px 6px; border-radius:3px;">sha256sum</code>으로 해시 산출, 별도 매체에 기록. 분석 시점 해시와 비교해 변조 없음 입증.</li>
+  <li><strong>Chain of Custody 문서화:</strong> 누가·언제·어디서·어떻게 수집했고, 이후 누구에게 인계됐는지 시간 순으로 기록. 법적 증거 능력의 핵심.</li>
+  <li><strong>Write Blocker 사용:</strong> 디스크 이미징 시 하드웨어/소프트웨어 write blocker로 원본을 절대 변경하지 않음. 분석은 사본에서만 수행.</li>
+</ol>
+<p><strong>추가 키워드:</strong> Live Response, Triage, Memory Forensics(Volatility), 디지털 증거의 4원칙(동일성·무결성·정당성·재현성), 사고대응팀(CSIRT).</p>
+</div>
+
+<footer style="margin-top:40px; padding-top:16px; border-top:1px solid #e0e0e0; color:#80868b; font-size:12px;">
+<p style="margin:0;">2026-05-28 정오 12시 학습 세트 · <a href="../index.html" style="color:#5f6368;">목록으로</a></p>
+</footer>
+
+</div>
+</body>
+</html>
