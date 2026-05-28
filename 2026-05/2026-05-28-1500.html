@@ -1,0 +1,355 @@
+<!DOCTYPE html><html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>학습세트 2026-05-28 15:00</title>
+</head><body style="margin:0; background:#fafafa;">
+<div style="max-width:680px; margin:0 auto; padding:20px; color:#202124; line-height:1.6; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Neo',sans-serif;">
+
+<div style="text-align:center; padding:12px 0 20px;">
+<div style="font-size:13px; color:#5f6368;">학습세트 · 2026-05-28 15:00 KST</div>
+<div style="font-size:20px; font-weight:600; margin-top:4px;">자료구조 1 · CS면접 2 · 정보보안기사 3</div>
+</div>
+
+<hr style="border:none; border-top:1px solid #e0e0e0; margin:24px 0;">
+
+<h2 style="font-size:18px; color:#202124; margin-top:0;">1부. 자료구조 / 알고리즘</h2>
+
+<h3 style="color:#1a73e8; border-left:4px solid #1a73e8; padding-left:10px; margin-top:24px;">문제 1. 구간 합 가중치 누적 후 최댓값</h3>
+<p>
+<span style="display:inline-block; background:#e8f0fe; color:#1967d2; padding:2px 8px; border-radius:4px; font-size:12px;">난이도: 중</span>
+&nbsp;<span style="display:inline-block; background:#fce8e6; color:#c5221f; padding:2px 8px; border-radius:4px; font-size:12px;">차분 배열</span>
+&nbsp;<span style="display:inline-block; background:#e6f4ea; color:#137333; padding:2px 8px; border-radius:4px; font-size:12px;">누적합</span>
+</p>
+
+<p>길이 <code style="background:#f1f3f4; padding:2px 6px; border-radius:3px; font-family:monospace; font-size:13px;">N</code>인 정수 배열 <code style="background:#f1f3f4; padding:2px 6px; border-radius:3px; font-family:monospace; font-size:13px;">A</code>가 모두 0으로 초기화되어 있다. 이후 <code style="background:#f1f3f4; padding:2px 6px; border-radius:3px; font-family:monospace; font-size:13px;">Q</code>개의 쿼리 <code style="background:#f1f3f4; padding:2px 6px; border-radius:3px; font-family:monospace; font-size:13px;">(l, r, v)</code>가 주어진다. 각 쿼리는 인덱스 <code style="background:#f1f3f4; padding:2px 6px; border-radius:3px; font-family:monospace; font-size:13px;">l</code>부터 <code style="background:#f1f3f4; padding:2px 6px; border-radius:3px; font-family:monospace; font-size:13px;">r</code>까지 모든 원소에 정수 <code style="background:#f1f3f4; padding:2px 6px; border-radius:3px; font-family:monospace; font-size:13px;">v</code>를 더한다 (인덱스는 1부터 시작). 모든 쿼리를 적용한 후 배열 <code style="background:#f1f3f4; padding:2px 6px; border-radius:3px; font-family:monospace; font-size:13px;">A</code>에서 가장 큰 원소의 값을 출력하라.</p>
+
+<p><b>입력</b><br>
+첫 줄에 <code style="background:#f1f3f4; padding:2px 6px; border-radius:3px; font-family:monospace; font-size:13px;">N</code>, <code style="background:#f1f3f4; padding:2px 6px; border-radius:3px; font-family:monospace; font-size:13px;">Q</code>가 공백으로 주어진다.<br>
+이어지는 <code style="background:#f1f3f4; padding:2px 6px; border-radius:3px; font-family:monospace; font-size:13px;">Q</code>개의 줄에 각각 <code style="background:#f1f3f4; padding:2px 6px; border-radius:3px; font-family:monospace; font-size:13px;">l r v</code>가 주어진다.</p>
+
+<p><b>출력</b><br>
+모든 쿼리 적용 후 배열의 최댓값을 정수 한 개로 출력한다 (배열은 0으로 시작하므로 최댓값의 최솟값은 0).</p>
+
+<p><b>제약</b><br>
+1 ≤ N, Q ≤ 100,000<br>
+1 ≤ l ≤ r ≤ N<br>
+-10<sup>9</sup> ≤ v ≤ 10<sup>9</sup></p>
+
+<p><b>예시 입력</b></p>
+<pre style="background:#1e1e1e; color:#d4d4d4; padding:12px; border-radius:6px; overflow-x:auto; font-family:'SF Mono',Consolas,monospace; font-size:13px;"><code>5 3
+1 3 5
+2 4 -2
+3 5 7</code></pre>
+
+<p><b>예시 출력</b></p>
+<pre style="background:#1e1e1e; color:#d4d4d4; padding:12px; border-radius:6px; overflow-x:auto; font-family:'SF Mono',Consolas,monospace; font-size:13px;"><code>10</code></pre>
+
+<p style="font-size:13px; color:#5f6368;">설명: 쿼리 적용 과정 — [5,5,5,0,0] → [5,3,3,-2,0] → [5,3,10,5,7]. 최댓값은 10.</p>
+
+<hr style="border:none; border-top:1px solid #e0e0e0; margin:24px 0;">
+
+<h2 style="font-size:18px; color:#202124;">2부. CS 면접</h2>
+
+<h3 style="color:#1a73e8; border-left:4px solid #1a73e8; padding-left:10px; margin-top:24px;">문제 2. Copy-on-Write (COW) 와 fork()</h3>
+<p>
+<span style="display:inline-block; background:#e8f0fe; color:#1967d2; padding:2px 8px; border-radius:4px; font-size:12px;">운영체제</span>
+&nbsp;<span style="display:inline-block; background:#fce8e6; color:#c5221f; padding:2px 8px; border-radius:4px; font-size:12px;">메모리 관리</span>
+</p>
+<p>Linux의 <code style="background:#f1f3f4; padding:2px 6px; border-radius:3px; font-family:monospace; font-size:13px;">fork()</code> 시스템 콜이 자식 프로세스를 생성할 때 <b>Copy-on-Write(COW)</b>가 어떻게 동작하는지 설명하시오. COW가 없다면 어떤 비용이 발생하며, 페이지 폴트(Page Fault)와의 관계는 무엇인가? 실제 응용 사례를 한 가지 들어 설명하시오.</p>
+
+<h3 style="color:#1a73e8; border-left:4px solid #1a73e8; padding-left:10px; margin-top:24px;">문제 3. Phantom Read 와 Repeatable Read</h3>
+<p>
+<span style="display:inline-block; background:#e8f0fe; color:#1967d2; padding:2px 8px; border-radius:4px; font-size:12px;">데이터베이스</span>
+&nbsp;<span style="display:inline-block; background:#fce8e6; color:#c5221f; padding:2px 8px; border-radius:4px; font-size:12px;">트랜잭션 격리 수준</span>
+</p>
+<p>트랜잭션 격리 수준에서 <b>Phantom Read</b>(유령 읽기)란 무엇이며, <b>Repeatable Read</b> 격리 수준에서 발생할 수 있는가? MySQL InnoDB의 동작이 표준과 어떻게 다른지 함께 설명하시오. 또한 Phantom Read를 완전히 차단하기 위한 방법을 두 가지 이상 제시하시오.</p>
+
+<hr style="border:none; border-top:1px solid #e0e0e0; margin:24px 0;">
+
+<h2 style="font-size:18px; color:#202124;">3부. 정보보안기사 실기</h2>
+
+<h3 style="color:#1a73e8; border-left:4px solid #1a73e8; padding-left:10px; margin-top:24px;">문제 4. DNS Cache Poisoning 과 DNSSEC</h3>
+<p>
+<span style="display:inline-block; background:#e8f0fe; color:#1967d2; padding:2px 8px; border-radius:4px; font-size:12px;">네트워크 보안</span>
+</p>
+<p>DNS Cache Poisoning 공격의 원리를 <b>Kaminsky 공격</b>을 포함하여 설명하고, 이를 방어하기 위한 <b>DNSSEC</b>의 동작 원리를 RRSIG · DNSKEY · DS 레코드를 활용하여 서술하시오. DNSSEC이 제공하는 보안 속성과 제공하지 <i>않는</i> 보안 속성을 명확히 구분하시오.</p>
+
+<h3 style="color:#1a73e8; border-left:4px solid #1a73e8; padding-left:10px; margin-top:24px;">문제 5. XXE (XML External Entity) 공격</h3>
+<p>
+<span style="display:inline-block; background:#e8f0fe; color:#1967d2; padding:2px 8px; border-radius:4px; font-size:12px;">애플리케이션 보안</span>
+</p>
+<p>XML External Entity(XXE) 공격이 무엇인지 설명하고, 공격에 활용될 수 있는 XML 페이로드의 예시를 작성하시오. XXE를 통해 발생할 수 있는 피해 유형을 <b>최소 3가지 이상</b> 제시하고, Java 기반 애플리케이션에서 적용할 수 있는 구체적인 대응 방안을 서술하시오.</p>
+
+<h3 style="color:#1a73e8; border-left:4px solid #1a73e8; padding-left:10px; margin-top:24px;">문제 6. 디지털 서명에서 해시 함수와 RSA-PSS</h3>
+<p>
+<span style="display:inline-block; background:#e8f0fe; color:#1967d2; padding:2px 8px; border-radius:4px; font-size:12px;">암호학</span>
+</p>
+<p>디지털 서명 과정에서 메시지 그 자체가 아닌 <b>해시 값(message digest)</b>에 서명하는 이유 3가지를 설명하시오. 또한 RSA 기반 서명 방식 중 <b>PKCS#1 v1.5</b> 와 <b>RSA-PSS</b>의 차이점을 보안성·결정성·표준 권장 측면에서 비교하시오.</p>
+
+<div style="text-align:center; margin:40px 0; padding:16px; background:#fef7e0; border-radius:8px; color:#8a6d3b;">👇 아래는 정답 및 해설입니다 — 먼저 풀어보고 내려가세요 👇</div>
+
+<h2 style="font-size:18px; color:#202124;">정답 및 해설</h2>
+
+<h3 style="color:#1a73e8; border-left:4px solid #1a73e8; padding-left:10px; margin-top:24px;">해설 1. 차분 배열 (Difference Array)</h3>
+<div style="background:#f8f9fa; padding:16px; border-radius:8px; margin:12px 0;">
+
+<p><b>핵심 아이디어</b><br>
+구간 <code style="background:#f1f3f4; padding:2px 6px; border-radius:3px; font-family:monospace; font-size:13px;">[l, r]</code>에 <code style="background:#f1f3f4; padding:2px 6px; border-radius:3px; font-family:monospace; font-size:13px;">v</code>를 더하는 연산을 매번 O(r-l+1)로 처리하면 최악 O(NQ) = 10<sup>10</sup>으로 시간 초과. 차분 배열을 사용하면 각 쿼리당 O(1), 마지막에 누적합 1회(O(N))로 처리 가능.</p>
+
+<p><b>차분 배열의 정의</b><br>
+원본 배열 <code style="background:#f1f3f4; padding:2px 6px; border-radius:3px; font-family:monospace; font-size:13px;">A</code>에 대해 <code style="background:#f1f3f4; padding:2px 6px; border-radius:3px; font-family:monospace; font-size:13px;">diff[i] = A[i] - A[i-1]</code>로 정의. 그러면 구간 더하기 <code style="background:#f1f3f4; padding:2px 6px; border-radius:3px; font-family:monospace; font-size:13px;">A[l..r] += v</code>는 <code style="background:#f1f3f4; padding:2px 6px; border-radius:3px; font-family:monospace; font-size:13px;">diff[l] += v; diff[r+1] -= v</code> 두 번의 갱신으로 표현 가능. 배열 복원은 <code style="background:#f1f3f4; padding:2px 6px; border-radius:3px; font-family:monospace; font-size:13px;">A[i] = diff[1] + diff[2] + ... + diff[i]</code> 누적합.</p>
+
+<p><b>복잡도</b><br>
+시간: O(N + Q), 공간: O(N)</p>
+
+<p><b>Python 구현</b></p>
+<pre style="background:#1e1e1e; color:#d4d4d4; padding:12px; border-radius:6px; overflow-x:auto; font-family:'SF Mono',Consolas,monospace; font-size:13px;"><code>import sys
+input = sys.stdin.readline
+
+def solve():
+    N, Q = map(int, input().split())
+    diff = [0] * (N + 2)  # 1-indexed, r+1 접근 위해 +2
+    for _ in range(Q):
+        l, r, v = map(int, input().split())
+        diff[l] += v
+        diff[r + 1] -= v
+
+    cur = 0
+    max_val = 0  # 배열은 0으로 시작하므로 0이 하한
+    for i in range(1, N + 1):
+        cur += diff[i]
+        if cur &gt; max_val:
+            max_val = cur
+    print(max_val)
+
+solve()</code></pre>
+
+<p><b>Java 구현</b></p>
+<pre style="background:#1e1e1e; color:#d4d4d4; padding:12px; border-radius:6px; overflow-x:auto; font-family:'SF Mono',Consolas,monospace; font-size:13px;"><code>import java.io.*;
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        int N = Integer.parseInt(st.nextToken());
+        int Q = Integer.parseInt(st.nextToken());
+        long[] diff = new long[N + 2];
+        for (int i = 0; i &lt; Q; i++) {
+            st = new StringTokenizer(br.readLine());
+            int l = Integer.parseInt(st.nextToken());
+            int r = Integer.parseInt(st.nextToken());
+            long v = Long.parseLong(st.nextToken());
+            diff[l] += v;
+            diff[r + 1] -= v;
+        }
+        long cur = 0, max = 0;
+        for (int i = 1; i &lt;= N; i++) {
+            cur += diff[i];
+            if (cur &gt; max) max = cur;
+        }
+        System.out.println(max);
+    }
+}</code></pre>
+
+<p><b>다른 접근법</b><br>
+1) <b>Segment Tree with Lazy Propagation</b>: 구간 갱신 + 구간 최댓값을 동적으로 질의할 때 유용. 시간 O((N+Q) log N). 본 문제는 쿼리가 모두 적용된 후에만 결과를 구하므로 오버킬.<br>
+2) <b>Sqrt Decomposition</b>: 블록 단위로 lazy 갱신. O((N+Q)√N). 차분 배열 대비 이점 없음.<br>
+3) <b>오프라인 정렬 + 이벤트 스위핑</b>: 시작/종료 이벤트를 정렬해 처리. 본질적으로 차분 배열과 동등.</p>
+
+<p><b>주의 사항</b><br>
+• 누적값은 <code style="background:#f1f3f4; padding:2px 6px; border-radius:3px; font-family:monospace; font-size:13px;">long</code> (Java) 또는 Python int(자동 빅인트) 사용 — Q×|v| 최대 ≈ 10<sup>14</sup>.<br>
+• 배열은 0으로 시작하므로 모든 <code style="background:#f1f3f4; padding:2px 6px; border-radius:3px; font-family:monospace; font-size:13px;">v</code>가 음수여도 최댓값의 하한은 0.<br>
+• <code style="background:#f1f3f4; padding:2px 6px; border-radius:3px; font-family:monospace; font-size:13px;">diff[r+1]</code> 접근 위해 배열 크기 <code style="background:#f1f3f4; padding:2px 6px; border-radius:3px; font-family:monospace; font-size:13px;">N+2</code> 확보.</p>
+
+</div>
+
+<h3 style="color:#1a73e8; border-left:4px solid #1a73e8; padding-left:10px; margin-top:24px;">해설 2. Copy-on-Write (COW)</h3>
+<div style="background:#f8f9fa; padding:16px; border-radius:8px; margin:12px 0;">
+
+<p><b>면접 답변 구조</b></p>
+
+<p><b>① 정의</b><br>
+Copy-on-Write는 메모리 페이지를 즉시 복사하지 않고, 쓰기가 실제로 발생할 때까지 미루는 최적화 기법이다. 부모와 자식 프로세스가 동일한 물리 페이지를 가리키며 페이지 테이블 엔트리를 <b>읽기 전용(Read-only)</b>으로 마킹한다.</p>
+
+<p><b>② fork() 흐름</b></p>
+<ol>
+<li>커널이 자식 프로세스의 task_struct, mm_struct를 생성하고 부모의 페이지 테이블을 그대로 복사한다.</li>
+<li>부모·자식 모두 동일한 물리 페이지를 공유하지만 PTE의 RW 비트를 클리어 → 읽기만 가능.</li>
+<li>어느 한쪽이 페이지에 write 시도 → <b>페이지 폴트(Write Protection Fault)</b> 발생.</li>
+<li>커널이 폴트 핸들러에서 새 물리 페이지 할당 → 내용 복사 → 해당 프로세스의 PTE만 RW로 변경.</li>
+<li>참조 카운트가 1이 되면 이미 단독 소유이므로 복사 없이 RW만 회복.</li>
+</ol>
+
+<p><b>③ COW가 없을 때의 비용</b><br>
+fork()마다 부모 프로세스의 전체 메모리(수십 MB~GB)를 즉시 복사 → 메모리 대역폭과 시간이 선형 증가. 대부분의 fork()는 직후 <code style="background:#f1f3f4; padding:2px 6px; border-radius:3px; font-family:monospace; font-size:13px;">exec()</code>로 이미지를 갈아엎으므로 복사한 메모리가 즉시 버려져 낭비된다.</p>
+
+<p><b>④ 실제 응용 사례</b></p>
+<ul>
+<li><b>Redis BGSAVE / BGREWRITEAOF</b>: 부모는 요청을 계속 처리하고, fork()된 자식이 메모리 스냅샷을 디스크에 기록. 쓰기가 적으면 추가 메모리 부담 최소.</li>
+<li><b>fork()+exec() 패턴</b>: 쉘이 외부 명령을 실행할 때 전체 메모리 복사 회피.</li>
+<li><b>유저 공간 COW</b>: <code style="background:#f1f3f4; padding:2px 6px; border-radius:3px; font-family:monospace; font-size:13px;">mmap(MAP_PRIVATE)</code>로 매핑된 파일 영역에 쓰면 익명 페이지로 복사.</li>
+</ul>
+
+<p><b>⑤ 키워드 / 후속 질문</b><br>
+PTE, TLB shootdown, vfork()와의 차이, fork bomb, Linux의 <code style="background:#f1f3f4; padding:2px 6px; border-radius:3px; font-family:monospace; font-size:13px;">/proc/&lt;pid&gt;/smaps</code>에서 Shared_Clean/Dirty, Transparent Huge Page와 COW의 상호작용, Redis에서 큰 페이지 사용 시 COW 비용 증가 문제.</p>
+
+</div>
+
+<h3 style="color:#1a73e8; border-left:4px solid #1a73e8; padding-left:10px; margin-top:24px;">해설 3. Phantom Read / Repeatable Read</h3>
+<div style="background:#f8f9fa; padding:16px; border-radius:8px; margin:12px 0;">
+
+<p><b>면접 답변 구조</b></p>
+
+<p><b>① Phantom Read 정의</b><br>
+같은 트랜잭션 안에서 동일한 <b>범위 조건</b> 쿼리를 두 번 실행했을 때, 다른 트랜잭션이 그 사이에 새 행을 <code style="background:#f1f3f4; padding:2px 6px; border-radius:3px; font-family:monospace; font-size:13px;">INSERT</code>(또는 조건에 부합하도록 <code style="background:#f1f3f4; padding:2px 6px; border-radius:3px; font-family:monospace; font-size:13px;">UPDATE</code>)하여 결과 집합의 행 수가 달라지는 현상.</p>
+
+<p><b>② 격리 수준별 발생 여부 (ANSI 표준)</b><br>
+Read Uncommitted, Read Committed, <b>Repeatable Read에서도 발생 가능</b>, Serializable에서 차단.<br>
+Repeatable Read는 같은 행을 다시 읽었을 때 같은 값을 보장하지만(Non-repeatable Read 차단), 새 행이 등장하는 것은 막지 않는다.</p>
+
+<p><b>③ MySQL InnoDB의 예외</b><br>
+InnoDB의 기본 격리 수준 Repeatable Read에서는 <b>Next-Key Lock</b>(레코드 락 + 갭 락)을 사용해 범위 잠금을 걸기 때문에 Phantom Read도 사실상 차단된다. 단, 이는 <b>잠금 읽기</b>(<code style="background:#f1f3f4; padding:2px 6px; border-radius:3px; font-family:monospace; font-size:13px;">SELECT ... FOR UPDATE</code>, <code style="background:#f1f3f4; padding:2px 6px; border-radius:3px; font-family:monospace; font-size:13px;">LOCK IN SHARE MODE</code>) 또는 갱신성 쿼리에 한정. 일반 SELECT(consistent read)는 MVCC 스냅샷을 사용해 일관된 뷰를 제공한다.</p>
+
+<p><b>④ Phantom Read 차단 방법</b></p>
+<ol>
+<li><b>Serializable</b> 격리 수준 사용 — 트랜잭션을 직렬화하여 모든 이상 현상 차단(성능 비용 큼).</li>
+<li><b>범위 잠금 / Next-Key Lock</b>: 조건에 포함될 가능성이 있는 인덱스 갭까지 잠근다.</li>
+<li><b>Predicate Lock</b>: PostgreSQL Serializable Snapshot Isolation(SSI)에서 사용. 조건을 추적해 충돌 시 한쪽 트랜잭션 롤백.</li>
+<li><b>비관적 / 응용 레벨 잠금</b>: 명시적 테이블 잠금, 분산 락(Redis Redlock 등).</li>
+</ol>
+
+<p><b>⑤ 헷갈리는 포인트</b><br>
+• Non-repeatable Read vs Phantom Read: 전자는 <i>같은 행</i>의 값 변경, 후자는 <i>새 행</i>의 등장.<br>
+• InnoDB가 표준과 다르다는 점은 면접에서 자주 묻는 함정.<br>
+• MVCC만으로는 갱신 손실(Lost Update)을 막지 못해 SELECT FOR UPDATE 또는 Serializable 필요.</p>
+
+<p><b>⑥ 키워드 / 후속 질문</b><br>
+Gap Lock, Next-Key Lock, MVCC, Snapshot Isolation, Write Skew, SSI, PostgreSQL Serializable의 false-positive abort, 트랜잭션 격리 수준 변경 명령(<code style="background:#f1f3f4; padding:2px 6px; border-radius:3px; font-family:monospace; font-size:13px;">SET TRANSACTION ISOLATION LEVEL ...</code>).</p>
+
+</div>
+
+<h3 style="color:#1a73e8; border-left:4px solid #1a73e8; padding-left:10px; margin-top:24px;">해설 4. DNS Cache Poisoning / DNSSEC</h3>
+<div style="background:#f8f9fa; padding:16px; border-radius:8px; margin:12px 0;">
+
+<p><b>① 공격 원리</b><br>
+DNS는 UDP 53번 포트와 16비트 트랜잭션 ID(TXID)만으로 응답을 신뢰한다. 공격자는 캐시 서버가 권한 서버에 질의하는 순간을 노려, 정상 응답보다 먼저 위조 응답을 보내 캐시에 잘못된 매핑(예: bank.com → 공격자 IP)을 저장시킨다. 캐시 TTL 동안 다른 사용자도 악성 사이트로 유도된다.</p>
+
+<p><b>② Kaminsky 공격 (2008)</b><br>
+존재하지 않는 서브도메인(예: <code style="background:#f1f3f4; padding:2px 6px; border-radius:3px; font-family:monospace; font-size:13px;">aaa.bank.com</code>, <code style="background:#f1f3f4; padding:2px 6px; border-radius:3px; font-family:monospace; font-size:13px;">bbb.bank.com</code>, …)을 반복 질의하면서 응답에 <b>Additional 섹션</b>으로 <code style="background:#f1f3f4; padding:2px 6px; border-radius:3px; font-family:monospace; font-size:13px;">bank.com NS attacker.com</code> 또는 <code style="background:#f1f3f4; padding:2px 6px; border-radius:3px; font-family:monospace; font-size:13px;">bank.com A 공격자IP</code>를 끼워 넣는다. TXID 16비트(2<sup>16</sup>=65,536)를 brute force로 맞추는 race condition 공격이며, 매번 새 도메인이라 TTL 우회가 가능했던 점이 기존 공격 대비 치명적이었다.</p>
+
+<p><b>③ DNSSEC 동작</b></p>
+<ul>
+<li><b>DNSKEY</b>: 존(zone)의 공개키 레코드. <b>ZSK</b>(Zone Signing Key)는 RRset 서명, <b>KSK</b>(Key Signing Key)는 DNSKEY RRset 서명.</li>
+<li><b>RRSIG</b>: 각 RRset에 대한 디지털 서명. 해시 + 비대칭 서명(RSA/ECDSA).</li>
+<li><b>DS (Delegation Signer)</b>: 상위 존이 보유하는 자식 존 KSK의 해시. 상위 존이 자식 존 KSK를 인증.</li>
+<li><b>Chain of Trust</b>: 루트 KSK(공개) → TLD DS → TLD KSK → 도메인 DS → 도메인 KSK → ZSK → RRSIG → 데이터. 어디든 한 단계라도 깨지면 검증 실패.</li>
+<li><b>NSEC / NSEC3</b>: 존재하지 않는 도메인에 대한 인증된 부정 응답.</li>
+</ul>
+
+<p><b>④ DNSSEC이 제공하는 것 vs 제공하지 않는 것</b></p>
+<table style="border-collapse:collapse; width:100%; font-size:13px;">
+<tr><td style="border:1px solid #dadce0; padding:8px; background:#e6f4ea;"><b>제공</b></td><td style="border:1px solid #dadce0; padding:8px;">데이터 무결성(Integrity), 출처 인증(Authenticity), 인증된 부정 응답</td></tr>
+<tr><td style="border:1px solid #dadce0; padding:8px; background:#fce8e6;"><b>비제공</b></td><td style="border:1px solid #dadce0; padding:8px;">기밀성(평문 그대로 전송), DoS 방어, 단말~리졸버 구간 보호</td></tr>
+</table>
+
+<p style="margin-top:12px;"><b>⑤ 부가 대응책</b><br>
+• <b>소스 포트 무작위화</b>(SPR): TXID 16비트 + 소스 포트 ~16비트 ≈ 32비트 엔트로피로 brute force 비용 증가.<br>
+• <b>DNS over TLS (DoT) / DNS over HTTPS (DoH)</b>: 전송 구간 암호화로 단말~리졸버 도청·변조 방지.<br>
+• <b>0x20 인코딩</b>: 쿼리 도메인의 대소문자를 무작위화하여 추가 엔트로피 확보.</p>
+
+<p><b>⑥ 헷갈리는 포인트 / 키워드</b><br>
+DNSSEC ≠ 암호화. DNSSEC은 서명만 추가하며 쿼리·응답은 평문 그대로 전송. 기밀성은 DoT/DoH가 담당. KSK/ZSK 분리는 키 회전(rollover)을 용이하게 함. NSEC3은 NSEC의 zone walking 문제를 해시로 완화.</p>
+
+</div>
+
+<h3 style="color:#1a73e8; border-left:4px solid #1a73e8; padding-left:10px; margin-top:24px;">해설 5. XXE (XML External Entity)</h3>
+<div style="background:#f8f9fa; padding:16px; border-radius:8px; margin:12px 0;">
+
+<p><b>① 개념</b><br>
+XML 파서가 외부 엔티티(<code style="background:#f1f3f4; padding:2px 6px; border-radius:3px; font-family:monospace; font-size:13px;">&lt;!ENTITY ... SYSTEM "..."&gt;</code>) 선언을 처리할 때, 공격자가 제어하는 URI를 끼워 넣어 파일 시스템·내부 네트워크·외부 서버에 접근하는 취약점. OWASP Top 10에서 한때 단독 항목, 현재 A04(Insecure Design) / A05(Security Misconfiguration)에 포함.</p>
+
+<p><b>② 공격 페이로드 예시</b></p>
+<pre style="background:#1e1e1e; color:#d4d4d4; padding:12px; border-radius:6px; overflow-x:auto; font-family:'SF Mono',Consolas,monospace; font-size:13px;"><code>&lt;?xml version="1.0"?&gt;
+&lt;!DOCTYPE foo [
+  &lt;!ENTITY xxe SYSTEM "file:///etc/passwd"&gt;
+]&gt;
+&lt;foo&gt;&amp;xxe;&lt;/foo&gt;</code></pre>
+
+<p>응답에 <code style="background:#f1f3f4; padding:2px 6px; border-radius:3px; font-family:monospace; font-size:13px;">/etc/passwd</code> 내용이 그대로 노출되거나, 에러 메시지로 유출(out-of-band). Billion Laughs(엔티티 확장 폭발)의 예:</p>
+<pre style="background:#1e1e1e; color:#d4d4d4; padding:12px; border-radius:6px; overflow-x:auto; font-family:'SF Mono',Consolas,monospace; font-size:13px;"><code>&lt;!DOCTYPE lolz [
+  &lt;!ENTITY lol "lol"&gt;
+  &lt;!ENTITY lol2 "&amp;lol;&amp;lol;&amp;lol;&amp;lol;&amp;lol;&amp;lol;&amp;lol;&amp;lol;&amp;lol;&amp;lol;"&gt;
+  &lt;!ENTITY lol3 "&amp;lol2;&amp;lol2;&amp;lol2;&amp;lol2;&amp;lol2;&amp;lol2;&amp;lol2;&amp;lol2;&amp;lol2;&amp;lol2;"&gt;
+&lt;/lol3&gt;</code></pre>
+
+<p><b>③ 피해 유형 (3가지 이상)</b></p>
+<ol>
+<li><b>로컬 파일 읽기</b>: <code style="background:#f1f3f4; padding:2px 6px; border-radius:3px; font-family:monospace; font-size:13px;">file:///</code> 스킴으로 서버 내부 파일 유출 (설정 파일, 패스워드 해시, 비밀 키).</li>
+<li><b>SSRF (Server-Side Request Forgery)</b>: <code style="background:#f1f3f4; padding:2px 6px; border-radius:3px; font-family:monospace; font-size:13px;">http://internal-host/</code>로 내부 네트워크 스캔, 클라우드 메타데이터(<code style="background:#f1f3f4; padding:2px 6px; border-radius:3px; font-family:monospace; font-size:13px;">169.254.169.254</code>) 탈취.</li>
+<li><b>DoS</b>: Billion Laughs / Quadratic Blowup으로 메모리·CPU 고갈.</li>
+<li><b>RCE (드묾)</b>: PHP <code style="background:#f1f3f4; padding:2px 6px; border-radius:3px; font-family:monospace; font-size:13px;">expect://</code> 또는 Java의 일부 환경에서 발생.</li>
+<li><b>Out-of-Band 데이터 유출</b>: Parameter Entity로 외부 DTD 호출 → 공격자 서버 로그에 데이터 전송.</li>
+</ol>
+
+<p><b>④ Java 대응 방안 (DocumentBuilderFactory / SAXParserFactory 공통)</b></p>
+<pre style="background:#1e1e1e; color:#d4d4d4; padding:12px; border-radius:6px; overflow-x:auto; font-family:'SF Mono',Consolas,monospace; font-size:13px;"><code>DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+// (1) 권장: 안전한 처리 모드
+dbf.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
+// (2) DTD 자체를 거부 - 가장 안전
+dbf.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
+// (3) 외부 엔티티 비활성화
+dbf.setFeature("http://xml.org/sax/features/external-general-entities", false);
+dbf.setFeature("http://xml.org/sax/features/external-parameter-entities", false);
+dbf.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false);
+dbf.setXIncludeAware(false);
+dbf.setExpandEntityReferences(false);</code></pre>
+
+<p>가능하면 XML 대신 <b>JSON</b> 등 외부 엔티티 개념이 없는 포맷을 사용. SOAP·SAML·XML 기반 RSS/OPML 처리 코드 모두 점검 필요.</p>
+
+<p><b>⑤ 헷갈리는 포인트 / 키워드</b><br>
+일반 엔티티(General Entity)와 파라미터 엔티티(<code style="background:#f1f3f4; padding:2px 6px; border-radius:3px; font-family:monospace; font-size:13px;">%name;</code>)를 모두 막아야 함. <code style="background:#f1f3f4; padding:2px 6px; border-radius:3px; font-family:monospace; font-size:13px;">SYSTEM</code>·<code style="background:#f1f3f4; padding:2px 6px; border-radius:3px; font-family:monospace; font-size:13px;">PUBLIC</code> 식별자, Blind XXE, OOB-XXE, OWASP XXE Prevention Cheat Sheet, libxml2 <code style="background:#f1f3f4; padding:2px 6px; border-radius:3px; font-family:monospace; font-size:13px;">XML_PARSE_NOENT</code>·<code style="background:#f1f3f4; padding:2px 6px; border-radius:3px; font-family:monospace; font-size:13px;">XML_PARSE_DTDLOAD</code> 플래그 주의.</p>
+
+</div>
+
+<h3 style="color:#1a73e8; border-left:4px solid #1a73e8; padding-left:10px; margin-top:24px;">해설 6. 디지털 서명 · 해시 · RSA-PSS</h3>
+<div style="background:#f8f9fa; padding:16px; border-radius:8px; margin:12px 0;">
+
+<p><b>① 메시지가 아닌 해시에 서명하는 이유 (3가지)</b></p>
+<ol>
+<li><b>고정 길이 처리 / 성능</b>: RSA 등 공개키 연산은 모듈러스 길이(예: 2048비트)와 같거나 작은 입력만 처리 가능. 임의 길이 메시지를 그대로 서명하면 분할·연쇄 처리가 필요해 비효율적이고 보안 약점이 생긴다. 해시는 임의 길이 → 고정 길이(예: 256비트)로 압축하여 단 1회의 비대칭 연산으로 처리.</li>
+<li><b>충돌 저항성으로 위변조 방지</b>: 안전한 해시 함수(SHA-256, SHA-3 등)는 충돌·역상 저항성을 가지므로, 같은 해시를 갖는 다른 메시지를 만들 수 없다. 따라서 해시에 대한 서명이 곧 메시지 무결성 보장.</li>
+<li><b>구조적 공격 회피</b>: 메시지 자체를 서명하면 RSA의 곱셈 동형성(homomorphism) 등으로 인한 기존 서명 재사용·위조 공격에 노출. 해시(특히 random oracle 모델)로 입력을 무작위화하면 이런 대수적 구조 공격이 차단된다.</li>
+</ol>
+
+<p>(부가 이점: 짧은 해시만 별도 보관·전송 가능, 표준화된 OID로 알고리즘 식별 용이)</p>
+
+<p><b>② PKCS#1 v1.5 vs RSA-PSS</b></p>
+
+<table style="border-collapse:collapse; width:100%; font-size:13px;">
+<tr style="background:#e8f0fe;"><th style="border:1px solid #dadce0; padding:8px; text-align:left;">구분</th><th style="border:1px solid #dadce0; padding:8px; text-align:left;">PKCS#1 v1.5</th><th style="border:1px solid #dadce0; padding:8px; text-align:left;">RSA-PSS (PKCS#1 v2.1+)</th></tr>
+<tr><td style="border:1px solid #dadce0; padding:8px;"><b>패딩 방식</b></td><td style="border:1px solid #dadce0; padding:8px;">결정적(deterministic) 패딩 <code style="background:#f1f3f4; padding:2px 6px; border-radius:3px; font-family:monospace; font-size:13px;">0x00 0x01 FF...FF 0x00 DigestInfo</code></td><td style="border:1px solid #dadce0; padding:8px;">확률적(probabilistic) 패딩 — 무작위 salt + MGF1 마스크 생성</td></tr>
+<tr><td style="border:1px solid #dadce0; padding:8px;"><b>결정성</b></td><td style="border:1px solid #dadce0; padding:8px;">같은 메시지 → 같은 서명</td><td style="border:1px solid #dadce0; padding:8px;">같은 메시지 → 매번 다른 서명 (salt 길이만큼)</td></tr>
+<tr><td style="border:1px solid #dadce0; padding:8px;"><b>보안 증명</b></td><td style="border:1px solid #dadce0; padding:8px;">RSA 가정만으로는 증명 없음(역사적·실용적으로 안전하나 일부 사이드채널 우려)</td><td style="border:1px solid #dadce0; padding:8px;">RSA 가정 + ROM에서 강한 안전성 증명 가능(EUF-CMA)</td></tr>
+<tr><td style="border:1px solid #dadce0; padding:8px;"><b>알려진 약점</b></td><td style="border:1px solid #dadce0; padding:8px;">Bleichenbacher류 서명 위조(작은 e=3, 잘못된 구현), 결정성으로 인한 카드 분석 등</td><td style="border:1px solid #dadce0; padding:8px;">salt 길이·해시 일치만 지키면 알려진 실용 공격 없음</td></tr>
+<tr><td style="border:1px solid #dadce0; padding:8px;"><b>표준 권장</b></td><td style="border:1px solid #dadce0; padding:8px;">레거시 호환용으로 유지(코드 서명, X.509 등 광범위 사용)</td><td style="border:1px solid #dadce0; padding:8px;">신규 시스템·TLS 1.3 권장. NIST SP 800-131A·BSI에서도 권장</td></tr>
+</table>
+
+<p style="margin-top:12px;"><b>③ RSA-PSS 동작 요약</b><br>
+EMSA-PSS 인코딩: <code style="background:#f1f3f4; padding:2px 6px; border-radius:3px; font-family:monospace; font-size:13px;">H' = Hash(0x00||0x00||0x00||0x00||0x00||0x00||0x00||0x00 || Hash(M) || salt)</code>, 이어 <code style="background:#f1f3f4; padding:2px 6px; border-radius:3px; font-family:monospace; font-size:13px;">DB = padding||0x01||salt</code>를 MGF1로 마스킹 후 H'와 결합 → RSA 비공개 지수로 서명. 검증은 역으로 마스크 해제 후 H' 재계산하여 비교.</p>
+
+<p><b>④ 헷갈리는 포인트 / 키워드</b><br>
+• PSS의 결정성 부재가 보안적 약점이 아니라 오히려 강점(메시지-서명 매칭이 노출 안 됨).<br>
+• 결정적이지만 표준화된 결정적 서명이 필요한 환경(블록체인, 결정적 빌드)에서는 EdDSA(Ed25519)를 채택하는 경향.<br>
+• 키워드: EMSA-PSS, MGF1, salt length(보통 hash와 동일), Random Oracle Model, Full Domain Hash(FDH), RSASSA-PSS, OAEP(암호화용 — 서명과 혼동 주의), TLS 1.3 signature_algorithms.</p>
+
+</div>
+
+<hr style="border:none; border-top:1px solid #e0e0e0; margin:24px 0;">
+
+<p style="font-size:12px; color:#5f6368; text-align:center;">
+이 학습세트는 매일 9시·12시·18시(KST)에 자동 생성됩니다.<br>
+웹 보기: <a href="https://anveloper.github.io/study-sets/" style="color:#1a73e8;">anveloper.github.io/study-sets</a>
+</p>
+
+</div>
+</body></html>
